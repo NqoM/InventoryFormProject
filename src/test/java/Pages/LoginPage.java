@@ -25,8 +25,6 @@ public class LoginPage {
     @FindBy(id = "login-submit")
     WebElement submitButton;
 
-    //@FindBy(xpath = "")
-    //WebElement verifyLoginPage;
 
     public LoginPage(WebDriver driver) {
 

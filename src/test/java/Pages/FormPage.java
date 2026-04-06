@@ -24,6 +24,9 @@ public class FormPage {
     @FindBy(id = "quantity")
     WebElement quantityField;
 
+    @FindBy(id = "address")
+    WebElement addressField;
+
 
     public FormPage(WebDriver driver) {
         this.driver = driver;
@@ -50,10 +53,16 @@ public class FormPage {
         Thread.sleep(3000);
     }
 
-    public void clickQuantity() throws InterruptedException {
-        colorField.click();
+    public void enterQuantity(String quantity) throws InterruptedException {
+        quantityField.sendKeys(quantity);
         Thread.sleep(3000);
     }
+
+    public void enterAddress(String address) throws InterruptedException {
+        addressField.sendKeys(address);
+        Thread.sleep(3000);
+    }
+
 
 
 

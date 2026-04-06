@@ -71,7 +71,15 @@ public class NdosiTests extends Base {
         formPage.clickColor();
     }
 
+    @Test(dependsOnMethods = "userClicksColor")
+    public void userEnterQuantity() throws InterruptedException {
+        formPage.enterQuantity("2");
+    }
 
+    @Test(dependsOnMethods = "userEnterQuantity")
+    public void userEnterAddress() throws InterruptedException  {
+        formPage.enterAddress("123 James Street, Durban 4001");
+    }
 
 
 
