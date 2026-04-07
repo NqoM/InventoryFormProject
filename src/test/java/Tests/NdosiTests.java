@@ -32,48 +32,50 @@ public class NdosiTests extends Base {
     }
 
     @Test(dependsOnMethods = "userClicksLoginButton")
-    public void userClicksLearnButton() throws InterruptedException {
-        homePage.clickLearnButton();
-    }
-
-    @Test(dependsOnMethods = "userClicksLoginButton")
     public void verifyLoginPageIsDisplayed(){
         loginPage.verifyLoginPageIsDisplayed();
     }
 
-    @Test(dependsOnMethods = "userClicksLearnButton")
-    public void userClicksLearningMaterials() throws InterruptedException {
-        homePage.clickLearningMaterials();
+    @Test(dependsOnMethods = "verifyLoginPageIsDisplayed")
+    public void userSelectsLearnButton() throws InterruptedException {
+        homePage.selectLearnButton();
     }
 
-    @Test(dependsOnMethods = "userClicksLearningMaterials")
-    public void userClicksWebAutomationAdvance() throws InterruptedException {
-        homePage.clickWebAutomationAdvance();
+
+    @Test(dependsOnMethods = "userSelectsLearnButton")
+    public void userSelectsLearningMaterials() throws InterruptedException {
+        homePage.selectLearningMaterials();
     }
 
-    @Test(dependsOnMethods = "userClicksWebAutomationAdvance")
-    public void userClicksDevice() throws InterruptedException {
-        formPage.clickDevice();
+    @Test(dependsOnMethods = "userSelectsLearningMaterials")
+    public void userSelectsWebAutomationAdvance() throws InterruptedException {
+        homePage.selectWebAutomationAdvance();
     }
 
-    @Test(dependsOnMethods = "userClicksDevice")
-    public void userClicksBrand() throws InterruptedException {
-        formPage.clickBrand();
+    @Test(dependsOnMethods = "userSelectsWebAutomationAdvance")
+    public void userSelectDeviceType() throws InterruptedException {
+        formPage.selectDeviceType();
     }
 
-    @Test(dependsOnMethods = "userClicksBrand")
-    public void userClicksStorage() throws InterruptedException {
-        formPage.clickStorage();
+    @Test(dependsOnMethods = "userSelectDeviceType")
+    public void userSelectBrand() throws InterruptedException {
+        formPage.selectBrand();
     }
 
-    @Test(dependsOnMethods = "userClicksStorage")
-    public void userClicksColor() throws InterruptedException {
-        formPage.clickColor();
+    @Test(dependsOnMethods = "userSelectBrand")
+    public void userSelectStorage() throws InterruptedException {
+        formPage.selectStorage();
     }
 
-    @Test(dependsOnMethods = "userClicksColor")
+    @Test(dependsOnMethods = "userSelectStorage")
+    public void userSelectColor() throws InterruptedException {
+        formPage.selectColor();
+    }
+
+    @Test(dependsOnMethods = "userSelectColor")
     public void userEnterQuantity() throws InterruptedException {
         formPage.enterQuantity("2");
+
     }
 
     @Test(dependsOnMethods = "userEnterQuantity")
@@ -81,8 +83,20 @@ public class NdosiTests extends Base {
         formPage.enterAddress("123 James Street, Durban 4001");
     }
 
+    @Test(dependsOnMethods = "userEnterAddress")
+    public void userClicksNextButton() throws InterruptedException {
+        formPage.clickNextButton();
+    }
 
+    @Test(dependsOnMethods = "userClicksNextButton")
+    public void userSelectExpressShipping() throws InterruptedException {
+        formPage.selectExpressShipping();
+    }
 
+    @Test(dependsOnMethods = "userSelectExpressShipping")
+    public void userSelectOneYearWarranty() throws InterruptedException {
+        formPage.selectOneYearWarranty();
+    }
 
 
     @AfterTest

@@ -41,17 +41,17 @@ public class HomePage {
         verify_homePage.isDisplayed();
     }
 
-    public void clickLearnButton() throws InterruptedException {
+    public void selectLearnButton() throws InterruptedException {
         Thread.sleep(5000);
         LearnButton.click();
     }
 
-    public void clickLearningMaterials() throws InterruptedException {
+    public void selectLearningMaterials() throws InterruptedException {
         LearningMaterials.click();
         Thread.sleep(2000);
     }
 
-    public void clickWebAutomationAdvance() throws InterruptedException {
+    public void selectWebAutomationAdvance() throws InterruptedException {
         WebAutomationAdvance.click();
         Thread.sleep(2000);
     }
