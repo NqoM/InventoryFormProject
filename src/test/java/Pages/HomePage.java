@@ -20,7 +20,7 @@ public class HomePage {
     WebElement loginButton;
 
     @FindBy(xpath = "//*[@id=\"app-root\"]/nav/div[1]/div[2]/div[1]/button/span[2]")
-    WebElement LearnButton;
+    WebElement Learn;
 
     @FindBy(xpath = "//*[@id=\"app-root\"]/nav/div[1]/div[2]/div[1]/div/button[2]/span[2]")
     WebElement LearningMaterials;
@@ -43,7 +43,7 @@ public class HomePage {
 
     public void selectLearnButton() throws InterruptedException {
         Thread.sleep(5000);
-        LearnButton.click();
+        Learn.click();
     }
 
     public void selectLearningMaterials() throws InterruptedException {

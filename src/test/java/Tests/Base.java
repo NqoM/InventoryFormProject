@@ -4,6 +4,7 @@ import Pages.FormPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
+import Utils.TakeScreenshots;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,5 +18,6 @@ public class Base {
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     FormPage formPage = PageFactory.initElements(driver, FormPage.class);
 
+    TakeScreenshots takeScreenshots = new TakeScreenshots();
 
 }

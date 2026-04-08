@@ -6,6 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class FormPage {
 
@@ -52,16 +57,23 @@ public class FormPage {
     @FindBy(xpath = "//*[@id=\"view-history-btn\"]")
     WebElement viewInvoiceButton;
 
-    @FindBy(xpath = "//*[@id=\"view-invoice-INV-1775609961100\"]")
+    @FindBy(xpath = "//button[contains(.,'View')]")
     WebElement viewButton;
 
 
+    @FindBy(xpath = "//*[@id=\"app-main-content\"]/section/div[1]/h2")
+    WebElement verifyInvoice;
 
 
 
     public FormPage(WebDriver driver) {
         this.driver = driver;
     }
+
+    //public void verifyInvoiceIsDisplayed() {
+        //new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(verifyInvoice));
+        //verifyInvoice.isDisplayed();
+    //}
 
 
     public void selectDeviceType() throws InterruptedException {
@@ -133,6 +145,12 @@ public class FormPage {
         viewButton.click();
         Thread.sleep(5000);
     }
+
+    public void verifyInvoiceIsDisplayed() throws InterruptedException {
+        verifyInvoice.isDisplayed();
+        Thread.sleep(2000);
+    }
+
 
 
 

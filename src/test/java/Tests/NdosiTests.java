@@ -7,11 +7,9 @@ import org.testng.annotations.Test;
 @Test
 public class NdosiTests extends Base {
 
-    public void verifyHomePageIsDisplayed() {
-        homePage.verifyHomePageIsDisplayed();
-    }
 
-    @Test(dependsOnMethods = "verifyHomePageIsDisplayed")
+
+    //@Test(dependsOnMethods = "verifyHomePageIsDisplayed")
     public void clickLoginButton() {
         homePage.clickLoginButton();
     }
@@ -34,15 +32,16 @@ public class NdosiTests extends Base {
     @Test(dependsOnMethods = "userClicksLoginButton")
     public void verifyLoginPageIsDisplayed(){
         loginPage.verifyLoginPageIsDisplayed();
+        takeScreenshots.takeSnapShots(driver, "LoginPageScreenshot01");
     }
 
     @Test(dependsOnMethods = "verifyLoginPageIsDisplayed")
-    public void userSelectLearnButton() throws InterruptedException {
+    public void userSelectLearn() throws InterruptedException {
         homePage.selectLearnButton();
     }
 
 
-    @Test(dependsOnMethods = "userSelectLearnButton")
+    @Test(dependsOnMethods = "userSelectLearn")
     public void userSelectLearningMaterials() throws InterruptedException {
         homePage.selectLearningMaterials();
     }
@@ -104,20 +103,26 @@ public class NdosiTests extends Base {
     }
 
     @Test(dependsOnMethods = "userAppliesDiscountCode")
-    public void userClickConfirmPurchaseButton() throws InterruptedException  {
+    public void userClickConfirmPurchase() throws InterruptedException  {
         formPage.clickConfirmPurchase();
     }
 
     @Test(dependsOnMethods = "userAppliesDiscountCode")
-    public void userClickViewInvoiceButton() throws InterruptedException  {
+    public void userClickViewInvoice() throws InterruptedException  {
         formPage.clickViewInvoice();
     }
 
-    @Test(dependsOnMethods = "userClickViewInvoiceButton")
+    @Test(dependsOnMethods = "userClickViewInvoice")
     public void userClickView() throws InterruptedException  {
         formPage.clickView();
     }
 
+
+    @Test(dependsOnMethods = "userClickView")
+    public void verifyInvoiceIsDisplayed() throws InterruptedException {
+        formPage.verifyInvoiceIsDisplayed();
+        takeScreenshots.takeSnapShots(driver, "InvoiceScreenshot01");
+    }
 
 
     @AfterTest
