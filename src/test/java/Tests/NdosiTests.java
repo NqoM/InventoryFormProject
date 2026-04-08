@@ -37,22 +37,22 @@ public class NdosiTests extends Base {
     }
 
     @Test(dependsOnMethods = "verifyLoginPageIsDisplayed")
-    public void userSelectsLearnButton() throws InterruptedException {
+    public void userSelectLearnButton() throws InterruptedException {
         homePage.selectLearnButton();
     }
 
 
-    @Test(dependsOnMethods = "userSelectsLearnButton")
-    public void userSelectsLearningMaterials() throws InterruptedException {
+    @Test(dependsOnMethods = "userSelectLearnButton")
+    public void userSelectLearningMaterials() throws InterruptedException {
         homePage.selectLearningMaterials();
     }
 
-    @Test(dependsOnMethods = "userSelectsLearningMaterials")
-    public void userSelectsWebAutomationAdvance() throws InterruptedException {
+    @Test(dependsOnMethods = "userSelectLearningMaterials")
+    public void userSelectWebAutomationAdvance() throws InterruptedException {
         homePage.selectWebAutomationAdvance();
     }
 
-    @Test(dependsOnMethods = "userSelectsWebAutomationAdvance")
+    @Test(dependsOnMethods = "userSelectWebAutomationAdvance")
     public void userSelectDeviceType() throws InterruptedException {
         formPage.selectDeviceType();
     }
@@ -84,11 +84,11 @@ public class NdosiTests extends Base {
     }
 
     @Test(dependsOnMethods = "userEnterAddress")
-    public void userClicksNextButton() throws InterruptedException {
+    public void userClickNextButton() throws InterruptedException {
         formPage.clickNextButton();
     }
 
-    @Test(dependsOnMethods = "userClicksNextButton")
+    @Test(dependsOnMethods = "userClickNextButton")
     public void userSelectExpressShipping() throws InterruptedException {
         formPage.selectExpressShipping();
     }
@@ -97,6 +97,27 @@ public class NdosiTests extends Base {
     public void userSelectOneYearWarranty() throws InterruptedException {
         formPage.selectOneYearWarranty();
     }
+
+    @Test(dependsOnMethods = "userSelectOneYearWarranty")
+    public void userAppliesDiscountCode() throws InterruptedException {
+        formPage.applyDiscountCode("SAVE10");
+    }
+
+    @Test(dependsOnMethods = "userAppliesDiscountCode")
+    public void userClickConfirmPurchaseButton() throws InterruptedException  {
+        formPage.clickConfirmPurchase();
+    }
+
+    @Test(dependsOnMethods = "userAppliesDiscountCode")
+    public void userClickViewInvoiceButton() throws InterruptedException  {
+        formPage.clickViewInvoice();
+    }
+
+    @Test(dependsOnMethods = "userClickViewInvoiceButton")
+    public void userClickView() throws InterruptedException  {
+        formPage.clickView();
+    }
+
 
 
     @AfterTest

@@ -35,10 +35,26 @@ public class FormPage {
     WebElement nextButton;
 
     @FindBy(xpath = "//*[@id=\"shipping-express\"]")
-    WebElement shippingOption;
+    WebElement shippingMethod;
 
     @FindBy(xpath = "//*[@id=\"warranty-option-1yr\"]")
-    WebElement oneYearWarrantyRadio;
+    WebElement warrantyOption;
+
+    @FindBy(xpath = "//*[@id=\"discount-code\"]")
+    WebElement discountCodeField;
+
+    @FindBy(xpath = "//*[@id=\"apply-discount-btn\"]")
+    WebElement applyButton;
+
+    @FindBy(xpath = "//*[@id=\"purchase-device-btn\"]")
+    WebElement confirmPurchaseButton;
+
+    @FindBy(xpath = "//*[@id=\"view-history-btn\"]")
+    WebElement viewInvoiceButton;
+
+    @FindBy(xpath = "//*[@id=\"view-invoice-INV-1775609961100\"]")
+    WebElement viewButton;
+
 
 
 
@@ -47,15 +63,12 @@ public class FormPage {
         this.driver = driver;
     }
 
+
     public void selectDeviceType() throws InterruptedException {
         Select selectDeviceType = new Select(deviceTypeDropdown);
         selectDeviceType.selectByIndex(1);
         Thread.sleep(3000);
     }
-    //public void clickDevice() throws InterruptedException {
-        //deviceField.click();
-        //Thread.sleep(3000);
-    //} Dropdown
 
     public void selectBrand() throws InterruptedException {
         Select selectBrand = new Select(brandDropdown);
@@ -63,31 +76,16 @@ public class FormPage {
         Thread.sleep(3000);
     }
 
-    //public void clickStorage() throws InterruptedException {
-       // storageOption.click();
-        //Thread.sleep(2000);
-    //}
-
     public void selectStorage() throws InterruptedException {
         storageOption.click();
         Thread.sleep(3000);
     }
 
-
-    //public void clickColor() throws InterruptedException {
-    //colorField.click();
-    //Thread.sleep(2000);
-    //}
     public void selectColor() throws InterruptedException {
         Select selectColor = new Select(colorDropdown);
         selectColor.selectByIndex(3);
         Thread.sleep(3000);
     }
-
-    //public void clickBlueColorOption() throws InterruptedException {
-        //blueColorOption.click();
-        //Thread.sleep(2000);
-    //}
 
 
     public void enterQuantity(String quantity) throws InterruptedException {
@@ -106,15 +104,35 @@ public class FormPage {
     }
 
     public void selectExpressShipping() throws InterruptedException {
-        shippingOption.click();
+        shippingMethod.click();
         Thread.sleep(3000);
     }
 
     public void selectOneYearWarranty() throws InterruptedException {
-        oneYearWarrantyRadio.click();
+        warrantyOption.click();
         Thread.sleep(3000);
     }
 
+    public void applyDiscountCode(String code) throws InterruptedException {
+        discountCodeField.sendKeys(code);
+        applyButton.click();
+        Thread.sleep(5000);
+    }
+
+    public void clickConfirmPurchase() throws InterruptedException {
+        confirmPurchaseButton.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickViewInvoice() throws InterruptedException {
+        viewInvoiceButton.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickView() throws InterruptedException {
+        viewButton.click();
+        Thread.sleep(5000);
+    }
 
 
 
