@@ -41,7 +41,7 @@ jobs:
           # Name of the artifact as it will appear in GitHub Actions.
           name: extent-report
           # Path to the generated report file inside the project
-          path: Reports/ndosiAutomationReport.html
+          path: Reports/InventoryAutomationReport.html
 
       # Step 5: Send the report by email
       - name: Send Email with Extent Report
@@ -70,4 +70,4 @@ jobs:
             Nqobile CEO
 
           # Attach the generated report file to the email
-          attachments: Reports/ndosiAutomationReport.html
+          attachments: Reports/InventoryAutomationReport.html
