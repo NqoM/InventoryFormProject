@@ -16,8 +16,6 @@ public class FormPage {
 
     WebDriver driver;
 
-    //@FindBy(xpath = "//*[@id=\"deviceType\"]/option[2]")
-    //WebElement deviceField;
     @FindBy(xpath = "//*[@id=\"deviceType\"]")
     WebElement deviceTypeDropdown;
 
@@ -146,12 +144,9 @@ public class FormPage {
         Thread.sleep(5000);
     }
 
-    public void verifyInvoiceIsDisplayed() throws InterruptedException {
+    public void verifyInvoiceIsDisplayed() {
         verifyInvoice.isDisplayed();
-        Thread.sleep(2000);
     }
-
-
 
 
 }

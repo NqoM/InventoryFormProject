@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 public class NdosiTests extends Base {
 
 
-
     //@Test(dependsOnMethods = "verifyHomePageIsDisplayed")
     public void clickLoginButton() {
         homePage.clickLoginButton();
@@ -32,7 +31,6 @@ public class NdosiTests extends Base {
     @Test(dependsOnMethods = "userClicksLoginButton")
     public void verifyLoginPageIsDisplayed(){
         loginPage.verifyLoginPageIsDisplayed();
-        takeScreenshots.takeSnapShots(driver, "LoginPageScreenshot01");
     }
 
     @Test(dependsOnMethods = "verifyLoginPageIsDisplayed")
@@ -119,7 +117,7 @@ public class NdosiTests extends Base {
 
 
     @Test(dependsOnMethods = "userClickView")
-    public void verifyInvoiceIsDisplayed() throws InterruptedException {
+    public void verifyInvoiceIsDisplayed() {
         formPage.verifyInvoiceIsDisplayed();
         takeScreenshots.takeSnapShots(driver, "InvoiceScreenshot01");
     }
