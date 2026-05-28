@@ -63,11 +63,11 @@ jobs:
           from: ${{ secrets.EMAIL_USERNAME }}
           # Message body in the email
           body: Hi,
+              I hope you are well.
+              please find attached the latest Extent Report.
             
-            Please find attached the latest Extent Report.
-            
-            Kind Regards
-            Nqobile CEO
+              Kind Regards
+              Nqobile CEO
 
           # Attach the generated report file to the email
           attachments: Reports/InventoryAutomationReport.html
