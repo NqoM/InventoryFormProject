@@ -7,17 +7,58 @@ import Utils.BrowserFactory;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 public class Base {
 
-    BrowserFactory browserFactory = new BrowserFactory();
+    protected WebDriver driver;
+    protected HomePage homePage;
+    protected LoginPage loginPage;
+    protected FormPage formPage;
+    protected TakeScreenshots takeScreenshots;
 
-    final WebDriver driver = browserFactory.startBrowser("chrome", "https://ndosisimplifiedautomation.vercel.app/");
+    @BeforeClass
+    public void setUp() {
+        boolean headless = Boolean.parseBoolean(System.getProperty("headless", "true"));
 
-    HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-    LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-    FormPage formPage = PageFactory.initElements(driver, FormPage.class);
+        //BrowserFactory browserFactory = new BrowserFactory();
 
-    TakeScreenshots takeScreenshots = new TakeScreenshots();
+        //final WebDriver driver = browserFactory.startBrowser("chrome", "https://ndosisimplifiedautomation.vercel.app/");
+        driver = BrowserFactory.startBrowser("chrome", "https://ndosisimplifiedautomation.vercel.app/", headless);
 
-}
+        homePage = new HomePage(driver);
+        loginPage = new LoginPage(driver);
+        formPage = new FormPage(driver);
+
+        PageFactory.initElements(driver, homePage);
+        PageFactory.initElements(driver, loginPage);
+        PageFactory.initElements(driver, formPage);
+
+        takeScreenshots = new TakeScreenshots();
+
+
+        //@AfterClass
+        //public void tearDown() {
+            //if (driver != null) {
+                //driver.quit();
+            //}
+        }
+
+    }
+
+//}
+
+
+//public class Base {
+//
+//    BrowserFactory browserFactory = new BrowserFactory();
+//
+//    final WebDriver driver = browserFactory.startBrowser("chrome","https://ndosisimplifiedautomation.vercel.app/");
+//
+//    HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+//    LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+
+//    TakeScreenshots takeScreenshots = new TakeScreenshots();
+//}
+
