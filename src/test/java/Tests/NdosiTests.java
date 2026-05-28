@@ -15,7 +15,7 @@ public class NdosiTests extends Base {
 
     @Test(dependsOnMethods = "clickLoginButton")
     public void userEnterEmail() {
-        loginPage.enterEmail("nqoh@gmail.com");
+        loginPage.enterEmail("nqo@test.com");
     }
 
     @Test(dependsOnMethods = "userEnterEmail")
